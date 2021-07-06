@@ -93,24 +93,7 @@ namespace funCounters
         public static class Set{
             public static LinkedList<int> l = new LinkedList<int>();
         }
-        static void Main(string[] args)
-        {  
-            add1(1); 
-            add1(2);
-            add1(3);
-            add1(4);
-            add1(4);
-            add1(5);
-            add1(5);  
-            
-            Console.WriteLine(contains1(10));
-            foreach(int i in Set.l)
-                Console.WriteLine(i);  
-            Console.WriteLine(length());
-            foreach(int i in all1())
-                Console.WriteLine(i);
-            Console.WriteLine(isEmpty());
-        }
+        
 
         static bool add1(int x){
             bool result = true;
@@ -201,6 +184,61 @@ namespace funCounters
             if (Set.l.First == null)
                 result = true;
             return result;
+        }
+
+         public static class Stack{
+            public static LinkedList<int> l = new LinkedList<int>();
+        }
+        
+        static void push(int x){
+            Stack.l.AddFirst(x);
+        }
+
+        static void pop(){
+            Stack.l.RemoveFirst();
+        }
+
+        static int peek(){
+            int node = Convert.ToInt32(Stack.l.First.Value);
+            return Convert.ToInt32(node);
+            
+        }
+       
+        
+
+
+        static int length2(){
+            int x = 0;
+            var node = Stack.l.First;
+            while(node != null){
+                var next = node.Next;
+                x++;
+                node = next;
+            }
+            return x;
+        }
+
+        static bool isEmpty2(){
+            bool result = false;
+            if (Stack.l.First == null)
+                result = true;
+            return result;
+        }
+
+        static void Main(string[] args)
+        {  
+            
+            
+            push(1);
+            push(2);
+            push(3);
+            push(4);
+            
+            Console.WriteLine(peek());
+            foreach(int i in Stack.l)
+                Console.WriteLine(i);  
+            Console.WriteLine(length2());
+            Console.WriteLine(isEmpty2());
         }
 
     }
